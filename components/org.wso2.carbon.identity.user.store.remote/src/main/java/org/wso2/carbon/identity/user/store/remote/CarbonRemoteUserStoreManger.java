@@ -110,8 +110,8 @@ public class CarbonRemoteUserStoreManger implements UserStoreManager {
                 "远程服务器用户名#远程服务器的用户名称，具有足够的用户管理权限",
                 null);
         Property password = new Property(PASSWORD, "",
-                "远程服务器密码#与远程服务器用户名对应的密码 " +
-                        "username#encrypt",
+                "远程服务器密码#与远程服务器用户名对应的密码" +
+                        "密码#encrypt",
                 null);
         Property serverUrls = new Property(
                 SERVER_URLS,
