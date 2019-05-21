@@ -43,7 +43,7 @@ import java.util.Map.Entry;
 
 public class CarbonRemoteUserStoreManger implements UserStoreManager {
 
-    private static final String CONNECTION_REFUSED = "Connection refused";
+    private static final String CONNECTION_REFUSED = "连接被拒绝";
     private static final Log log = LogFactory.getLog(CarbonRemoteUserStoreManger.class);
     public static final String SERVER_URLS = "serverUrls";
     public static final String REMOTE_USER_NAME = "remoteUserName";
@@ -53,7 +53,7 @@ public class CarbonRemoteUserStoreManger implements UserStoreManager {
     private String domainName;
     private UserStoreManager secondaryUserStoreManager;
     private Map<String, WSUserStoreManager> remoteServers = new HashMap<String, WSUserStoreManager>();
-    private static final String REMOTE_ERROR_MSG = "Error occured while getting remote store value: ignoring the error";
+    private static final String REMOTE_ERROR_MSG = "得到远程存储值时发生错误: 忽略该错误";
 
     public CarbonRemoteUserStoreManger() {
 
@@ -107,30 +107,30 @@ public class CarbonRemoteUserStoreManger implements UserStoreManager {
         Property remoteServerUserName = new Property(
                 REMOTE_USER_NAME,
                 "",
-                "Remote Sever Username#Name of a user from the remote server, having enough privileges for user management",
+                "远程服务器用户名#远程服务器的用户名称，具有足够的用户管理权限",
                 null);
         Property password = new Property(PASSWORD, "",
-                "Remote Server Password#The password correspoing to the remote server " +
+                "远程服务器密码#与远程服务器用户名对应的密码 " +
                         "username#encrypt",
                 null);
         Property serverUrls = new Property(
                 SERVER_URLS,
                 "",
-                "Remote Server URL(s)#Remote server URLs. e.g.: https://ca-datacenter/services,https://va-datacenter/services",
+                "远程服务器URL#远程服务器URL. 例如: https://ca-datacenter/services,https://va-datacenter/services",
                 null);
-        Property disabled = new Property("Disabled", "false", "Disabled#Check to disable the user store", null);
+        Property disabled = new Property("Disabled", "false", "禁用#是否禁用用户存储", null);
 
         Property passwordJavaScriptRegEx = new Property(
                 UserStoreConfigConstants.passwordJavaScriptRegEx, "^[\\S]{5,30}$",
-                "Password RegEx (Javascript)#"
+                "密码正则表达式 (Javascript)#"
                         + UserStoreConfigConstants.passwordJavaScriptRegExDescription, null);
         Property usernameJavaScriptRegEx = new Property(
                 UserStoreConfigConstants.usernameJavaScriptRegEx, "^[\\S]{3,30}$",
-                "Username RegEx (Javascript)#"
+                "用户名正则表达式 (Javascript)#"
                         + UserStoreConfigConstants.usernameJavaRegExDescription, null);
         Property roleNameJavaScriptRegEx = new Property(
                 UserStoreConfigConstants.roleNameJavaScriptRegEx, "^[\\S]{3,30}$",
-                "Role Name RegEx (Javascript)#"
+                "角色名正则表达式 (Javascript)#"
                         + UserStoreConfigConstants.roleNameJavaScriptRegExDescription, null);
 
         mandatoryProperties = new Property[] {remoteServerUserName, password, serverUrls, passwordJavaScriptRegEx,
